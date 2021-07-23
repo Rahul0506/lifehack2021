@@ -12,4 +12,8 @@ export class StockService {
     async getAll(): Promise<Stock[]> {
         return this.stockModel.find().exec();
     }
+
+    async getStock(stockName: string): Promise<Stock> {
+        return this.stockModel.findOne({ name: stockName }).exec();
+    }
 }
