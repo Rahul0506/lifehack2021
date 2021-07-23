@@ -11,6 +11,7 @@ import { ProfileModule } from "../profile/profile.module";
 import { WinstonModule } from "../winston/winston.module";
 import { AccessControlModule } from "nest-access-control";
 import { roles } from "./app.roles";
+import { StockModule } from "modules/stock/stock.module";
 
 @Module({
   imports: [
@@ -66,6 +67,7 @@ import { roles } from "./app.roles";
     ConfigModule,
     AuthModule,
     ProfileModule,
+    StockModule,
   ],
   controllers: [AppController],
   providers: [AppService],
