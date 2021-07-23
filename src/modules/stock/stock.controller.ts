@@ -77,7 +77,7 @@ export class StockController {
         if (!stock) {
             throw new BadRequestException("No stocks with given name exist.");
         }
-        return "submitted buy order";
+        return this.stockService.submitBuyOrder(buyOrderDto);
     }
 
     /**
@@ -99,6 +99,6 @@ export class StockController {
         if (!stock) {
             throw new BadRequestException("No stocks with given name exist.");
         }
-        return "submitted sell order";
+        return this.stockService.submitSellOrder(sellOrderDto);
     }
 }

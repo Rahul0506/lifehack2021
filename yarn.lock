@@ -7376,6 +7376,11 @@
     "source-map-support" "^0.5.17"
     "yn" "3.1.1"
 
+"ts-priority-queue@^0.1.1":
+  "integrity" "sha512-jNwbk4ItfTHVopnlQ/Z7UUlbF1TNsdXS2cb1W8kI6lm8UauIjs8CYSOEh1E/yrIEhl+HVFUMp60ma6fKuvBhBQ=="
+  "resolved" "https://registry.npmjs.org/ts-priority-queue/-/ts-priority-queue-0.1.1.tgz"
+  "version" "0.1.1"
+
 "tsc-watch@4.4.0":
   "integrity" "sha512-+0Yey6ptOOXAnt44OKTk2/EnQnmA0auL7VWXm9d9abMS4tabt0Xdr9B4AK6OJbWAre9ZdLA81+Nk8sz9unptyA=="
   "resolved" "https://registry.npmjs.org/tsc-watch/-/tsc-watch-4.4.0.tgz"
