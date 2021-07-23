@@ -8,10 +8,12 @@ import { Stock, StockDocument } from "./stock.schema";
 
 @Injectable()
 export class StockService {
+    private stockHandlers: Map<string, StockHandler>;
     constructor(
         @InjectModel(Stock.name) private stockModel: Model<StockDocument>,
-        private stockHandlers: Map<string, StockHandler>,
-    ) {}
+    ) {
+        this.stockHandlers = new Map<string, StockHandler>();
+    }
 
     async getAll(): Promise<Stock[]> {
         return this.stockModel.find().exec();
@@ -22,7 +24,13 @@ export class StockService {
     }
 
     async submitBuyOrder(buyOrderDto: OrderDto): Promise<string> {
-        const handler = this.stockHandlers.get(buyOrderDto.name);
+        const stockName = buyOrderDto.name;
+        var handler = this.stockHandlers.get(stockName);
+        if (!handler) {
+            handler = new StockHandler();
+            this.stockHandlers.set(stockName, handler);
+        }
+
         const buyOrder: StockModel = {
             volume: buyOrderDto.volume,
             bidPrice: buyOrderDto.bidPrice,
@@ -31,7 +39,13 @@ export class StockService {
     }
 
     async submitSellOrder(sellOrderDto: OrderDto): Promise<string> {
-        const handler = this.stockHandlers.get(sellOrderDto.name);
+        const stockName = sellOrderDto.name;
+        var handler = this.stockHandlers.get(stockName);
+        if (!handler) {
+            handler = new StockHandler();
+            this.stockHandlers.set(stockName, handler);
+        }
+
         const sellOrder: StockModel = {
             volume: sellOrderDto.volume,
             bidPrice: sellOrderDto.bidPrice,

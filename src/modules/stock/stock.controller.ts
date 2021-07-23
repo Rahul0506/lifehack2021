@@ -24,7 +24,6 @@ export class StockController {
      * @returns {Promise<Stock[]>} all stocks in database
      */
     @Get("all")
-    @UseGuards(AuthGuard("jwt"))
     @ApiResponse({
         status: 200,
         description: "Fetch all stocks request received",
@@ -39,7 +38,6 @@ export class StockController {
      * @returns {Promise<Stock>} stock requested for
      */
     @Get(":stockName")
-    @UseGuards(AuthGuard("jwt"))
     @ApiResponse({
         status: 200,
         description: "Fetch stock details request received ",
@@ -63,7 +61,6 @@ export class StockController {
      * @param buyOrderDto json body with order fields
      */
     @Post("buy")
-    @UseGuards(AuthGuard("jwt"))
     @ApiResponse({
         status: 201,
         description: "Buy order submission received",
@@ -85,7 +82,6 @@ export class StockController {
      * @param buyOrderDto json body with order fields
      */
     @Post("sell")
-    @UseGuards(AuthGuard("jwt"))
     @ApiResponse({
         status: 201,
         description: "Sell order submission received",
